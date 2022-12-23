@@ -1,6 +1,8 @@
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 14px;
 }
+
 .box_left {
     height: 100%;
     width: 659px;
@@ -23,14 +25,45 @@ body {
     width: 1261px;
     left: 659px;
     top: 0px;
-    border-radius: 0px;
     background: rgba(255, 255, 255, 1);
     position: fixed;
     z-index: 999;
 }
 
+ul {
+    margin-top: 1.7em;
+}
+
 ul li {
     display: inline;
+    position: relative;
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: capitalize;
+    font-weight: bold;
+    padding-left: 2em;
+    
+}
+
+
+a {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 106.19%;
+    font-style: normal;
+    letter-spacing: 0.06em;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.btn {
+    border-radius: 7px;
+}
+
+a:focus {
+    background-color: #225998;
+    padding: 0.6em;
+    color: white;
 }
 
 .box_form {
@@ -62,3 +95,5 @@ ul li {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* See tomorrow: https://css-tricks.com/focusing-on-focus-styles/*/
