@@ -1,0 +1,39 @@
+.box_left {
+    height: 100%;
+    width: 659px;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(180deg, rgba(101, 206, 207, 0.1) 0%, rgba(71, 153, 182, 0.61) 47.4%, #225998 100%);
+    position: fixed;
+}
+
+.menu {
+    height: 69px;
+    width: 1261px;
+    left: 659px;
+    top: 0px;
+    border-radius: 0px;
+    background: rgba(255, 255, 255, 1);
+    position: fixed;
+    z-index: 999;
+}
+
+ul li {
+    display: inline;
+}
+
+.box_form {
+    height: 1011px;
+    width: 1261px;
+    left: 659px;
+    top: 69px;
+    border-radius: 0px;
+    background: rgba(250, 250, 250, 1);
+    position: fixed;
+}
+
+.iframeform {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
