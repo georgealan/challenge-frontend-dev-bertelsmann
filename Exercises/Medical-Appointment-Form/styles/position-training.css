@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    height: 1080px;
+    background-color: aquamarine;
+}
+
+
+.left-box {
+    background-color: blueviolet;
+    position: relative;
+    width: 30%;
+    height: 1080px;
+    top: 0;
+    
+}
+
+.right-box {
+    background-color: yellow;
+    position: relative;
+    width: 70%;
+    height: 1080px;
+    left: 30%;
+    bottom: 1080px;
+}
