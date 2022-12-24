@@ -70,13 +70,8 @@ a {
     font-weight: 500;
 }
 
+/* For menu buttons click effect */
 .active {
-    padding: 10px;
-    color: white;
-    background-color: #225998;
-}
-
-a:focus {
     padding: 10px;
     color: white;
     background-color: #225998;
