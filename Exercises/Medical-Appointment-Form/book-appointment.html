@@ -7,6 +7,48 @@
     <title>Book Appointment</title>
 </head>
 <body>
-    <h1>Form Book Appointment</h1>
+    <h1>Book Appointment</h1>
+    <section>
+        <form action="#" method="get" id="book-appointment">
+            <label for="name">Name*:</label>
+            <input type="text" name="name" placeholder="First Name" required>
+            <input type="text" name="name" placeholder="Middle Name">
+            <input type="text" name="name" placeholder="Last Name" required>
+            <br>
+
+            <label for="gender">Gender*:</label>
+            <select id="gender" name="gender" required></select> <!-- Populated by javascript -->
+
+            <label for="age">Age*:</label>
+            <input type="number" min="0" max="120" name="age" placeholder="Age" required>
+            <select id="agetime" name="age-time" required></select> <!-- Populated by javascript -->
+            <br>
+
+            <label for="reason">Reason:</label>
+            <input type="text" name="reason" placeholder="Reason">
+
+            <label for="contact-number">Contact Number*:</label>
+            <input type="tel" name="contact-number" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <br>
+
+            <label for="appointment-date">Appointment Date*:</label>
+            <input type="date" name="appointment-date" required>
+
+            <label for="appointment-time">Appointment Time</label>
+            <input type="time" name="appointment-time">
+            <br>
+
+            <label for="department">Department:</label>
+            <input type="text" name="department" placeholder="Department name">
+
+            <label for="doctor">Doctor:</label>
+            <input type="text" name="doctor" placeholder="Doctor Name">
+        </form>
+    </section>
+
+    <button type="submit" form="book-appointment" value="submit">Submit</button>
+
+    <script src="scripts/gender.js"></script>
+    <script src="scripts/agetime.js"></script>
 </body>
 </html>

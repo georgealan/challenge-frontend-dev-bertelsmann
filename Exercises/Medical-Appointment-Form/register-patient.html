@@ -7,6 +7,78 @@
     <title>Register Patient</title>
 </head>
 <body>
-    <h1>Form Register Patient</h1>
+    <h1>Register Patient</h1>
+    <section>
+        <h2>Basic Information</h2>
+        <form action="#" method="get" id="register-patient">
+            <label for="salutation">Salutation:</label>
+            <input type="radio" id="mr" name="salutation" value="Mr">
+            <label for="mr">Mr.</label>
+            <input type="radio" id="ms" name="salutation" value="Ms">
+            <label for="ms">Ms.</label>
+            <input type="radio" id="mrs" name="salutation" value="Mrs">
+            <label for="mrs">Mrs.</label>
+            <br>
+
+            <label for="name">Name*:</label>
+            <input type="text" name="name" placeholder="First Name" required>
+            <input type="text" name="name" placeholder="Middle Name">
+            <input type="text" name="name" placeholder="Last Name" required>
+            <br>
+
+            <label for="date-birth">Date of Birth*:</label>
+            <input type="date" name="date-birth" required>
+
+            <label for="age">Age*:</label>
+            <input type="number" min="0" max="120" name="age" placeholder="Age" required>
+            <select id="agetime" name="age-time" required></select>
+            <br>
+
+            <label for="phone">Phone Number*:</label>
+            <input type="tel" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+            <label for="country">Country*:</label>
+            <select id="countries" name="country" required></select> <!-- Populated by javascript -->
+            <br>
+
+            <label for="passport-number">Passport Number:</label>
+            <input type="text" name="passport-number" placeholder="Passport Number">
+
+            <label for="district-state">District/State*:</label>
+            <select id="states" name="district-state" required></select> <!-- Populated by javascript -->
+            <br>
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" placeholder="Address">
+
+            <label for="blood-group">Blood Group</label>
+            <select id="bloodtype" name="blood-group"></select> <!-- Populated by javascript -->
+
+    </section>
+
+    <section>
+        <h2>Address</h2>
+    </section>
+
+    <section>
+        <h2>Guarantor</h2>
+    </section>
+
+    <section>
+        <h2>Insurance</h2>
+    </section>
+
+    <section>
+        <h2>Emergency Contact</h2>
+
+        </form>
+    </section>
+
+    <button type="submit" form="register-patient" value="submit">Register Patient</button>
+
+    <script src="scripts/countries.js"></script>
+    <script src="scripts/agetime.js"></script>
+    <script src="scripts/states.js"></script>
+    <script src="scripts/bloodtypes.js"></script>
 </body>
 </html>

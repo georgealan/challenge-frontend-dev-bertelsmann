@@ -10,42 +10,31 @@
     <h1>New Visit</h1>
     <section>
         <h2>Patient Information</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" name="name" placeholder="First Name">
+        <form action="#" method="get" id="new-visit">
+            <label for="name">Name*:</label>
+            <input type="text" name="name" placeholder="First Name" required>
             <input type="text" name="name" placeholder="Middle Name">
-            <input type="text" name="name" placeholder="Last Name"><br>
+            <input type="text" name="name" placeholder="Last Name" required><br>
 
             <label for="dob">Have DOB?:</label>
             <input type="checkbox" name="dob" value="DOB"><br>
 
-            <label for="age">Age:</label>
-            <input type="number" min="0" max="120" name="age" placeholder="Age">
-            <select name="age-time">
-                <option value="days">Days</option>
-                <option value="months">Months</option>
-                <option value="years">Years</option>
-            </select><br>
+            <label for="age">Age*:</label>
+            <input type="number" min="0" max="120" name="age" placeholder="Age" required>
+            <select id="agetime" name="age-time" required></select> <!-- Populated by javascript -->
+            <br>
 
-            <label for="gender">Gender:</label>
-            <select name="gender">
-                <option value="select">--select--</option>
-                <option value="woman">Female</option>
-                <option value="man">Male</option>
-                <option value="transgender">Transgender</option>
-                <option value="non-binary">Non-Binary</option>
-                <option value="not-respond">Prefer not to respond</option>
-            </select><br>
+            <label for="gender">Gender*:</label>
+            <select id="gender" name="gender" required></select> <!-- Populated by javascript -->
+            <br>
 
             <label for="phone">Phone Number:</label>
             <input type="tel" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             required><br>
-        </form>
     </section>
 
     <section>
         <h2>Visit Information</h2>
-        <form>
             <label for="department">Department*:</label>
             <input type="text" name="department" placeholder="Department Name" required>
 
@@ -60,17 +49,19 @@
             
             <fieldset>
                 <legend>Diagnosis:</legend>
-                <label for="diagnosis">Symptoms:</label>
-                <input type="text" name="diagnosis" placeholder="Describe iliness, injury or symptoms">
+                <label for="diagnosis">Symptoms*:</label>
+                <input type="text" name="diagnosis" placeholder="Describe iliness, injury or symptoms" required>
 
-                <label for="date-accident">Date of Accident:</label>
+                <label for="date-accident">Date of Accident*:</label>
                 <input type="date" name="date-accident" required>
 
                 <label for="time-accident">Time:</label>
-                <input type="time" name="time-accident" required><br>
+                <input type="time" name="time-accident"><br>
 
-                <label for="location">Location:</label>
-                <select name="location">
+                <label for="location">Location*:</label>
+                <!-- This is the select tag, I use an JS script in other places for automate populate option values, but I left this as an example of using the tag  -->
+                <select name="location" required>
+                    <option value=""></option>
                     <option value="home">At Home</option>
                     <option value="work">At Work</option>
                     <option value="car-accident">Motor vehicle accident</option>
@@ -79,14 +70,18 @@
                 <label for="location">Explain other:</label>
                 <input type="text" name="location" placeholder="Other location">
             </fieldset>
-        </form>
     </section>
 
     <section>
         <h2>Billing Information</h2>
-        <form>
+        
 
         </form>
     </section>
+
+    <button type="submit" form="new-visit" value="submit">Add Visit</button>
+
+    <script src="scripts/agetime.js"></script>
+    <script src="scripts/gender.js"></script>
 </body>
 </html>
