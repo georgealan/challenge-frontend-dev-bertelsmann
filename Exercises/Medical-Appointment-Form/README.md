@@ -2,8 +2,8 @@
 
 ## Why create a form project?
 I chose to use forms to practice because it is very common to use forms in large systems, and it is a topic that I like to train to improve and create better forms. It is also a very interesting topic to practice styling with CSS, it is quite challenging to think of a design for all forms and style each input, labels, etc. with CSS.
-### Current project screenshot (not finished yet)
-![](https://raw.githubusercontent.com/georgealan/challenge-frontend-dev-bertelsmann/main/Exercises/Medical-Appointment-Form/assets/screenshots/screencapture001.png)
+### See the project running (not finished yet)
+![](https://raw.githubusercontent.com/georgealan/challenge-frontend-dev-bertelsmann/main/Exercises/Medical-Appointment-Form/assets/screenshots/project-execution.gif)
 
 ### How I composed the project
 To compose the project, I searched for images related to hospitals and doctors on the <a href="https://br.freepik.com/" alt="Freepik free image resources" target="_blank">Freepik</a> website, obtained some, and treated them in Photoshop, removing the background from the image of the doctor and the logo. To create the layout, I quickly made a sketch in Figma just to clarify the idea I had for something visual. From there, I built the layout in HTML and styled the template skeleton to match my sketch.
