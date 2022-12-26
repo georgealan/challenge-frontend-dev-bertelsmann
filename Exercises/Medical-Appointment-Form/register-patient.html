@@ -5,24 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Patient</title>
+    <link rel="stylesheet" href="styles/forms.css">
 </head>
 <body>
     <h1>Register Patient</h1>
-    <section>
+    <section class="form-topics">
         <h2>Basic Information</h2>
         <form action="#" method="get" id="register-patient">
-            <label for="salutation">Salutation:</label>
-            <input type="radio" id="mr" name="salutation" value="Mr">
-            <label for="mr">Mr.</label>
-            <input type="radio" id="ms" name="salutation" value="Ms">
-            <label for="ms">Ms.</label>
-            <input type="radio" id="mrs" name="salutation" value="Mrs">
-            <label for="mrs">Mrs.</label>
-            <br>
+            <fieldset class="salutation">
+                <legend>Salutation:</legend>
+                <input type="radio" id="mr" name="salutation" value="Mr">
+                <label for="mr">Mr.</label>
+                <input type="radio" id="ms" name="salutation" value="Ms">
+                <label for="ms">Ms.</label>
+                <input type="radio" id="mrs" name="salutation" value="Mrs">
+                <label for="mrs">Mrs.</label>
+            </fieldset>
 
             <label for="name">Name*:</label>
             <input type="text" name="name" placeholder="First Name" required>
-            <input type="text" name="name" placeholder="Middle Name">
             <input type="text" name="name" placeholder="Last Name" required>
             <br>
 
@@ -72,7 +73,7 @@
             <input type="text" name="pan-number" placeholder="PAN Number">
     </section>
 
-    <section>
+    <section class="form-topics">
         <h2>Address</h2>
         <label for="address-type">Address Type*:</label>
         <select id="address-type" name="address-type" required>
@@ -93,7 +94,7 @@
         <input type="text" name="zipcode" placeholder="Zip Code">
     </section>
 
-    <section>
+    <section class="form-topics">
         <h2>Insurance</h2>
         <label for="insurance-provider">Insurance Provider*:</label>
         <select id="insu-provider" name="insurance-provider" required></select> <!-- Populated by javascript -->
@@ -109,7 +110,7 @@
         <input type="text" name="imis-code" placeholder="IMIS Code" required>
     </section>
 
-    <section>
+    <section class="form-topics">
         <h2>Emergency Contact</h2>
         <label for="emergency-contact-name">Name*:</label>
         <input type="text" name="emergency-contact-name" placeholder="First Name" required>
@@ -123,13 +124,14 @@
         <input type="text" name="relationship" placeholder="Relationship" required>
         <br>
 
-        <label for="comments">Comments:</label>
+        <label for="comments">Comments:</label><br>
         <textarea name="comments" placeholder="Aditional comments here..." rows="4" cols="50"></textarea>
         </form>
     </section>
 
     <button type="submit" form="register-patient" value="submit">Register Patient</button>
 
+    <!-- JavaScript links -->
     <script src="scripts/countries.js"></script>
     <script src="scripts/agetime.js"></script>
     <script src="scripts/states.js"></script>

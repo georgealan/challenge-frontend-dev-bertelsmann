@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Visit</title>
+    <link rel="stylesheet" href="styles/forms.css">
 </head>
 <body>
     <h1>New Visit</h1>
-    <section>
+    <section class="form-topics">
         <h2>Patient Information</h2>
         <form action="#" method="get" id="new-visit">
             <label for="name">Name*:</label>
             <input type="text" name="name" placeholder="First Name" required>
-            <input type="text" name="name" placeholder="Middle Name">
             <input type="text" name="name" placeholder="Last Name" required><br>
 
             <label for="dob">Have DOB?:</label>
@@ -22,30 +22,28 @@
             <label for="age">Age*:</label>
             <input type="number" min="0" max="120" name="age" placeholder="Age" required>
             <select id="agetime" name="age-time" required></select> <!-- Populated by javascript -->
-            <br>
 
             <label for="gender">Gender*:</label>
             <select id="gender" name="gender" required></select> <!-- Populated by javascript -->
-            <br>
 
             <label for="phone">Phone Number:</label>
             <input type="tel" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            required><br>
+            required>
     </section>
 
-    <section>
+    <section class="form-topics">
         <h2>Visit Information</h2>
             <label for="department">Department*:</label>
             <input type="text" name="department" placeholder="Department Name" required>
 
             <label for="visit-date">Visite Date*:</label>
-            <input type="date" name="visit-date" required><br>
+            <input type="date" name="visit-date" required>
 
             <label for="doctor">Doctor*:</label>
             <input type="text" name="doctor" placeholder="Doctor Name" required>
 
             <label for="visit-time">Visit Time:</label>
-            <input type="time" name="visit-time"><br>
+            <input type="time" name="visit-time">
             
             <fieldset>
                 <legend>Diagnosis:</legend>
@@ -53,10 +51,10 @@
                 <input type="text" name="diagnosis" placeholder="Describe iliness, injury or symptoms" required>
 
                 <label for="date-accident">Date of Accident*:</label>
-                <input type="date" name="date-accident" required>
+                <input type="date" class="date" name="date-accident" required>
 
                 <label for="time-accident">Time:</label>
-                <input type="time" name="time-accident"><br>
+                <input type="time" name="time-accident">
 
                 <label for="location">Location*:</label>
                 <!-- This is the select tag, I use an JS script in other places for automate populate option values, but I left this as an example of using the tag  -->
@@ -75,6 +73,7 @@
 
     <button type="submit" form="new-visit" value="submit">Add Visit</button>
 
+    <!-- JavaScript links -->
     <script src="scripts/agetime.js"></script>
     <script src="scripts/gender.js"></script>
 </body>
