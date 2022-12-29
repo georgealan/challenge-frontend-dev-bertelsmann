@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap");
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+/* Set body defaults */
+body {
+  line-height: 1.5;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+
+  /* center demo content on the screen */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
