@@ -1,0 +1,74 @@
+/* CSS Reset using border-box */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* + * {
+    margin-top: 1em;
+}
+
+:root {
+    --clr-primary: #ee6352;
+    --clr-body: #333;
+    --clr-bg: #ddd;
+}
+
+body {
+    font-family: basic-sans, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125em;
+    line-height: 1.6;
+    color: var(--clr-body);
+    background: var(--clr-bg);
+}
+
+h1, h2, h3 {
+    line-height: 1;
+}
+
+img {
+    max-width: 100%;
+}
+
+.article {
+    display: flex;
+    background: white;
+    width: 900px;
+    /* max-width: 75rem; */
+    padding: 3em;
+    box-shadow: 0 0 3em rgba(0, 0, 0, .15);
+}
+
+.title {
+    margin: 0 0 .5em;
+    font-weight: 900;
+    color: var(--clr-primary);
+    line-height: .8;
+}
+
+.main-content {
+    width: 70%;
+    flex-shrink: 0;
+}
+
+.sidebar {
+    width: 30%;
+    padding: 2em;
+    margin: 0 0 0 2em;
+    flex-shrink: 0;
+}
+
+.widget {
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .25);
+    padding: 1.5em;
+    text-align: center;
+}
+
+.author__img {
+    border-radius: 50%;
+}
