@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&family=PT+Serif&display=swap');
+
+body {
+    margin: 0;
+    padding-top: 2rem;
+    font-family: 'PT Serif', serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #414141;
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 6rem;
+    line-height: 0.8;
+    margin-bottom: 1rem;
+}
+
+header {
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 72rem;
+    padding: 0 2rem;
+}
+
+a {
+    color: #CA5E10;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #7D7D7D;
+    margin-bottom: 2em;
+    font-size: 2.25rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 39rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.lead {
+    font-size: 1.3125rem;
+}
