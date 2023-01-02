@@ -1,0 +1,27 @@
+p {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 1em;
+    transition: all 500ms;
+}
+
+@keyframes test {
+    from {background: white; color: green;}
+    to {background: yellow; color: black;}
+}
+
+p:hover {
+    animation: test 5s forwards;
+}
+
+p:hover {
+    transition-duration: 5s;
+    color: yellow;
+    background: black;
+}
+
+p {
+    color: red !important;
+}
+

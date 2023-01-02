@@ -1,0 +1,31 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.container__parent {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 150px;
+    height: 200px;
+    margin: 1rem;
+}
+
+/* CSS Cascade Specificity blue always appear first */
+.color__red {
+    background: red;
+}
+
+/* Specifity win, if you put this in the fist order above the class red then color red will win */
+.color__blue { 
+    background: blue;
+}
+
+.element {
+    background: red;
+    background: blue; /* Win because specifity */
+}
