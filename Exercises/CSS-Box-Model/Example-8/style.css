@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600;800&display=swap');
+
 p {
     text-align: center;
     font-size: 4rem;
@@ -25,3 +27,48 @@ p {
     color: red !important;
 }
 
+/* Other example */
+h2 {
+    font-family: 'Poppins';
+    font-weight: 800;
+}
+
+.box-one {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content {
+    color: #121D23 !important;
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: 400;
+    line-height: 175%;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    width: 10em;
+    padding: 17px;
+    margin: 0 1em;
+    border: 1px solid #003648;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.primary {
+    background: #306579;
+    color: #fff;
+}
+
+.secondary {
+    background: #fff;
+}
