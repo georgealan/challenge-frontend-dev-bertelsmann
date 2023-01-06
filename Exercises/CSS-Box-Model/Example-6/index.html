@@ -4,14 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Example 6</title>
 </head>
 <body>
-    <!-- Learn more about rem & em -->
-    <div class="col col--em">
-        <h1>em</h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem ipsum dolor sit amet.</p>
+    <header class="header">
+        <h1 class="text-accent">Pricing</h1>
+        <p class="fs-500">Plans that work for everyone</p>
+    </header>
+
+    <div class="plans">
+        <div class="plan plan--light">
+            <h2 class="plan__title">Basic</h2>
+            <p class="plan__price">$15.99<span>/month</span></p>
+            <p class="plan_description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Provident laudantium, a quis commodi vel architecto.
+            </p>
+            <a href="#" class="button">Join Now</a>
+        </div>
+
+        <div class="plan plan--accent">
+            <div class="recommended__ribbon left" data-ribbon="Best Choice"></div>
+            <h2 class="plan__title">Super</h2>
+            <p class="plan__price">$39.99<span>/month</span></p>
+            <p class="plan_description">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Animi nisi tempore neque dolorem commodi porro.
+            </p>
+            <a href="#" class="button">Join Now</a>
+        </div>
+
+        <div class="plan plan--light">
+            <h2 class="plan__title">Enterprise</h2>
+            <p class="plan__price">$89.99<span>/month</span></p>
+            <p class="plan__description">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                Blanditiis beatae, suscipit at aspernatur ipsa ipsam.
+            </p>
+            <a href="#" class="button">Join Now</a>
+        </div>
     </div>
 </body>
 </html>

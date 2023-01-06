@@ -1,11 +1,153 @@
-.col--em {
-    font-size: 1em;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-.col--em h1 {
-    font-size: 2em;
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #4E4E4E;
 }
 
-.col--em p {
-    font-size: 1em;
+/* ====== Begin Ribbon Effect ====== */
+.recommended__ribbon::before {
+    --f: 1.2em;
+    --c:orange;
+    --d:15px;
+
+    color: #4E4E4E;
+    font-weight: 700;
+    content: attr(data-ribbon);
+    font-size:var(--f);
+
+    /* I : position & coloration */
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(29.29%, -100%) rotate(45deg);
+    transform-origin: bottom left;
+    padding: 5px 35px calc(var(--d) + 5px);
+    background: linear-gradient(rgba(0, 0, 0, 0.5) 0 0) bottom/100% var(--d) no-repeat var(--c);
+    
+    /* II : clipping */
+    clip-path: polygon(0 0,100% 0,100% 100%,calc(100% - var(--d)) calc(100% - var(--d)),var(--d) calc(100% - var(--d)) , 0 100%);
+    
+    /* III : masking */
+    -webkit-mask: 
+        linear-gradient( 135deg, transparent calc(50% - var(--d)*0.707),#fff 0) bottom left,
+        linear-gradient(-135deg, transparent calc(50% - var(--d)*0.707),#fff 0) bottom right;
+    -webkit-mask-size: 300vmax 300vmax;
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+}
+
+/* Change ribbon direction to left */
+.left::before {
+    left:0;
+    right:auto;
+    transform: translate(-29.29%, -100%) rotate(-45deg);
+    transform-origin: bottom right;
+}
+/* ====== End Ribbon Effect ====== */
+
+.plan--accent { /* relative for work with the div absolute that contain the ribbon */
+    position: relative;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-accent {
+    font-size: 2.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #00a1ab;
+    margin-bottom: 1px;
+}
+
+.fs-500 {
+    font-size: 1.4em;
+    margin-top: 1px;
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 4em;
+}
+
+.plan {
+    border-radius: 0.7em;
+    margin: 0 0.8em;
+    padding: 2em;
+    max-width: 300px;
+}
+
+.plan:hover {
+    transform: scale(1.2);
+    z-index: 999;
+}
+
+.plan--accent {
+    background: linear-gradient(-45deg, #00a1ab, #3741a0);
+    color: #fff;
+}
+
+.plan--light {
+    background: linear-gradient(-45deg, #E5E3E8, #FAFAFA);
+}
+
+.plan--light .plan__price {
+    color: #00a1ab;
+}
+
+.plan--light .button {
+    background: #4E4E4E;
+    color: #fff;
+}
+
+.plan--light .button:hover {
+    background: #898989;
+}
+
+.plan--accent .button {
+    background: #fff;
+    color: #4E4E4E;
+}
+
+.plan__title {
+    text-transform: uppercase;
+}
+
+.plan__price {
+    font-size: 3em;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+
+.plan__price span {
+    display: block;
+    font-size: 1.5625rem;
+    font-weight: 300;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.6em 1em;
+    border-radius: 0.25em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+a:active {
+    transform: scale(0.9);
 }
