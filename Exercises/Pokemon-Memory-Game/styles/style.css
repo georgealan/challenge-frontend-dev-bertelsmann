@@ -27,7 +27,9 @@ body {
     padding: 1.5em;
     margin-right: 1.7em;
     background: #f8f8f8;
+    border-radius: 0.5em;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    perspective: 1000px;
 }
 
 .card {
@@ -35,6 +37,43 @@ body {
     height: calc(18.7% - 10px);
     margin: 5px;
     position: relative;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+    
+}
+
+.card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-13px);
+    }
+    40%{
+        transform: translateX(13px);
+    }
+    60%{
+        transform: translateX(-8px);
+    }
+    80%{
+        transform: translateX(8px);
+    }
 }
 
 .front-face,
@@ -43,7 +82,14 @@ body {
     height: 100%;
     padding: 6px;
     position: absolute;
+    background: #fff;
+    backface-visibility: hidden;
 }
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
 
 /* Responsivity Media Queries */
 @media screen and (max-width: 1550px) {
@@ -105,7 +151,7 @@ body {
     }
 
     body {
-        align-items: flex-start;
+        align-items: flex-end;
     }
 }
 
