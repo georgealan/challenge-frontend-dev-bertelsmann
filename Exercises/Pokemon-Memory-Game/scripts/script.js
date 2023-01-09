@@ -1,5 +1,5 @@
 function createCards() { // will be in the function initGame()
-    const randonNumbers = generateRamdomNumbers(904, 15);
+    const randomNumbers = generateRandomNumbers(904, 15);
 
     for(var i = 0; i < 15; i++) {
         const card = document.createElement('div');
@@ -11,7 +11,7 @@ function createCards() { // will be in the function initGame()
     
         // imgFront.setAttribute('id', 'front-face-'+i);
         imgFront.setAttribute('class', 'front-face');
-        imgFront.setAttribute('src', 'assets/images/pokemons/pokemon-' + randonNumbers[i] + '.png');
+        imgFront.setAttribute('src', 'assets/images/pokemons/pokemon-' + randomNumbers[i] + '.png');
         imgFront.setAttribute('alt', 'Image card front view');
         
         // imgBack.setAttribute('id', 'back-face-'+i);
@@ -44,7 +44,7 @@ let disableDecks = false;
 let matchedCard = 0;
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
-function generateRamdomNumbers(limit, expectedNumbers) {
+function generateRandomNumbers(limit, expectedNumbers) {
     const uniqueNumbers = new Set();
 
     do {
@@ -73,21 +73,33 @@ function flipCard() {
 
 // Sound Effects
 function flipCardSound(cards) {
-    const audio = new Audio('assets/sounds/cardflip-sound.mp3');
+    const audio = new Audio('assets/sounds/sound-effects/cardflip-sound.mp3');
     cards.forEach(card => card.addEventListener('click', () => {
         audio.play();
     }));
 }
 
 function wrongMatchSound() {
-    const audio = new Audio('assets/sounds/wrong-sound.mp3');
+    const audio = new Audio('assets/sounds/sound-effects/wrong-sound.mp3');
     audio.play();
 }
 
-function gameMusic() {
-    const music = new Audio('assets/sounds/pokemon-orchestra.mp3');
-    music.play();
-    music.volume = 0.5;
+// FIX THIS FUNCTION
+function gameSoundtrack() {
+    const randomNumbers = generateRandomNumbers(26, 26);
+
+    for(var i = 0; i < 26; i++) {
+        let music = new Audio('assets/sounds/game-soundtrack/soundtrack-' + randomNumbers[i] + '.mp3');
+
+        music.play();
+        music.volume = 0.3;
+        console.log(music);
+        let trackEnd = music.ended();
+
+        if (trackEnd === false) {
+            continue
+        }
+    }
 }
 
 function matchCards(firstCardId, secondCardId) {
@@ -154,7 +166,7 @@ function replaceAllCards() {
     createCards();
 }
 
-gameMusic();
+gameSoundtrack();
 
 /*
     TODOS: 
