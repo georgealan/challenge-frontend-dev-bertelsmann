@@ -1,37 +1,42 @@
-for(var i = 1; i <= 15; i++) {
-    const card = document.createElement('div');
-    const imgFront = document.createElement('img');
-    const imgBack = document.createElement('img');
-    let randonNumber = Math.floor(Math.random() * 898);
-    // Fix bug in randonNumber, avoid generate duplicated number.
-
-    card.setAttribute('id', 'card-'+i);
-    card.setAttribute('class', 'card');
-
-    // imgFront.setAttribute('id', 'front-face-'+i);
-    imgFront.setAttribute('class', 'front-face');
-    imgFront.setAttribute('src', 'assets/images/pokemons/pokemon-' + randonNumber + '.png');
-    imgFront.setAttribute('alt', 'Image card front view');
+function createCards() {
+    for(var i = 1; i <= 15; i++) {
+        const card = document.createElement('div');
+        const imgFront = document.createElement('img');
+        const imgBack = document.createElement('img');
+        let randonNumber = Math.floor(Math.random() * 898);
+        // Fix bug in randonNumber, avoid generate duplicated number.
     
-    // imgBack.setAttribute('id', 'back-face-'+i);
-    imgBack.setAttribute('class', 'back-face');
-    imgBack.setAttribute('src', 'assets/images/pokeball.png');
-    imgBack.setAttribute('alt', 'Image card back view');
+        card.setAttribute('id', 'card-'+i);
+        card.setAttribute('class', 'card');
+    
+        // imgFront.setAttribute('id', 'front-face-'+i);
+        imgFront.setAttribute('class', 'front-face');
+        imgFront.setAttribute('src', 'assets/images/pokemons/pokemon-' + randonNumber + '.png');
+        imgFront.setAttribute('alt', 'Image card front view');
+        
+        // imgBack.setAttribute('id', 'back-face-'+i);
+        imgBack.setAttribute('class', 'back-face');
+        imgBack.setAttribute('src', 'assets/images/pokeball.png');
+        imgBack.setAttribute('alt', 'Image card back view');
+    
+        // Insert html elements in the DOM
+        document.getElementById('board-game').append(card);
+        document.getElementById('card-'+i).append(imgFront);
+        document.getElementById('card-'+i).append(imgBack);
+    
+        // Cloning the div element for duplicate the deck, with that will have 2 equal cards.
+        const node = document.getElementById('card-'+i);
+        const clone = node.cloneNode(card);
+        document.getElementById('board-game').appendChild(clone);
+    }
 
-    // Insert html elements in the DOM
-    document.getElementById('board-game').append(card);
-    document.getElementById('card-'+i).append(imgFront);
-    document.getElementById('card-'+i).append(imgBack);
+    const cards = document.querySelectorAll('.card'); // Selecting all divs with class name .card
+    cards.forEach(card => card.addEventListener('click', flipCard)); // Event listener that know when one of all divs receive an click
 
-    // Cloning the div element for duplicate the deck, with that will have 2 equal cards.
-    const node = document.getElementById('card-'+i);
-    const clone = node.cloneNode(card);
-    document.getElementById('board-game').appendChild(clone);
+    shuffleCards(cards); // Sort all cards in an aleatory way
 }
 
-// Selecting all divs with class name .card
-const cards = document.querySelectorAll('.card');
-
+createCards();
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
@@ -51,7 +56,6 @@ function flipCard() {
         
         return;
     }
-
     // Second click
     secondCard = this;
 
@@ -61,12 +65,11 @@ function flipCard() {
 function matchCards(firstCardId, secondCardId) {
     if(firstCardId === secondCardId) {
         matchedCard++;
-        console.log(matchedCard);
 
         if(matchedCard == 15) {
             setTimeout(() => {
-                return shuffleCards();
-            }, 1000);
+                replaceAllCards();
+            }, 1500);
         }
 
         disableCards();
@@ -102,15 +105,22 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-// Adjust logic!
-function shuffleCards() {
-    console.log('in shuffle function');
-    matchedCard = 0;
+function shuffleCards(cards) {
     cards.forEach(card => {
-        card.classList.remove('flip');
-        card.addEventListener('click', flipCard);
+        let randomPos = Math.floor(Math.random() * 15);
+        card.style.order = randomPos;
     });
 }
 
-// Event listener that know when one of all divs receive an click
-cards.forEach(card => card.addEventListener('click', flipCard));
+function replaceAllCards() {
+    const parentNode = document.getElementById('board-game');
+    let child = parentNode.lastElementChild;
+
+    while (child) {
+        parentNode.removeChild(child);
+        child = parentNode.lastElementChild;
+    }
+
+    matchedCard = 0;
+    createCards();
+}
