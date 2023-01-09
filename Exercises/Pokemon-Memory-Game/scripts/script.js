@@ -84,6 +84,12 @@ function wrongMatchSound() {
     audio.play();
 }
 
+function gameMusic() {
+    const music = new Audio('assets/sounds/pokemon-orchestra.mp3');
+    music.play();
+    music.volume = 0.5;
+}
+
 function matchCards(firstCardId, secondCardId) {
     if(firstCardId === secondCardId) {
         matchedCard++;
@@ -148,11 +154,13 @@ function replaceAllCards() {
     createCards();
 }
 
+gameMusic();
+
 /*
     TODOS: 
-    a) Add music sound in the background, Pokemon theme music strumental.
+    DONE! - a) Add music sound in the background, Pokemon theme music strumental.
+    DONE! - c) Add sound effects when: flip card: (sound effect flip), error match: (sound effect error).
     b) Allow user take sound game on/off in the panel.
-    c) Add sound effects when: flip card: (sound effect flip), error match: (sound effect error).
     d) Add animations of congratulations in the end of the game before refresh all cards.
     e) Add left panel, with menu panel bottom half that contain time, life, points, buttons etc.
     f) Add image of Ash and Pikachu in the left panel top half.
