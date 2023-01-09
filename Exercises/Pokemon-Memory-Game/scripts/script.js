@@ -1,17 +1,17 @@
-function createCards() {
-    for(var i = 1; i <= 15; i++) {
+function createCards() { // will be in the function initGame()
+    const randonNumbers = generateRamdomNumbers(904, 15);
+
+    for(var i = 0; i < 15; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');
-        let randonNumber = Math.floor(Math.random() * 898);
-        // Fix bug in randonNumber, avoid generate duplicated number.
     
         card.setAttribute('id', 'card-'+i);
         card.setAttribute('class', 'card');
     
         // imgFront.setAttribute('id', 'front-face-'+i);
         imgFront.setAttribute('class', 'front-face');
-        imgFront.setAttribute('src', 'assets/images/pokemons/pokemon-' + randonNumber + '.png');
+        imgFront.setAttribute('src', 'assets/images/pokemons/pokemon-' + randonNumbers[i] + '.png');
         imgFront.setAttribute('alt', 'Image card front view');
         
         // imgBack.setAttribute('id', 'back-face-'+i);
@@ -32,7 +32,7 @@ function createCards() {
 
     const cards = document.querySelectorAll('.card'); // Selecting all divs with class name .card
     cards.forEach(card => card.addEventListener('click', flipCard)); // Event listener that know when one of all divs receive an click
-
+    flipCardSound(cards); // When click in a card play the flipcard sound effect.
     shuffleCards(cards); // Sort all cards in an aleatory way
 }
 
@@ -42,6 +42,17 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 let disableDecks = false;
 let matchedCard = 0;
+
+// Generate unique ramdom numbers, without repeat any number, using Set().
+function generateRamdomNumbers(limit, expectedNumbers) {
+    const uniqueNumbers = new Set();
+
+    do {
+        uniqueNumbers.add(Math.floor(Math.random() * limit));
+    } while (uniqueNumbers.size < expectedNumbers);
+
+    return Array.from(uniqueNumbers);
+}
 
 function flipCard() {
     if (disableDecks) return; // Lock the board for nothing alow many clicks.
@@ -53,13 +64,24 @@ function flipCard() {
         // First Click
         hasFlippedCard = true;
         firstCard = this;
-        
         return;
     }
     // Second click
     secondCard = this;
-
     matchCards(firstCard.id, secondCard.id);
+}
+
+// Sound Effects
+function flipCardSound(cards) {
+    const audio = new Audio('assets/sounds/cardflip-sound.mp3');
+    cards.forEach(card => card.addEventListener('click', () => {
+        audio.play();
+    }));
+}
+
+function wrongMatchSound() {
+    const audio = new Audio('assets/sounds/wrong-sound.mp3');
+    audio.play();
 }
 
 function matchCards(firstCardId, secondCardId) {
@@ -89,6 +111,7 @@ function unflipCards() {
     disableDecks = true;
 
     setTimeout(() => {
+        wrongMatchSound(); // Play sound wrong effect.
         firstCard.classList.add('shake'); 
         secondCard.classList.add('shake');
     }, 400);
