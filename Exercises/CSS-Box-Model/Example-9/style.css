@@ -1,3 +1,19 @@
+:root {
+    --clr-primary-400: #00a1ab;
+    --clr-primary-500: #3741a0;
+
+    --clr-accent-400: #00cdac;
+    --clr-accent-500: #114243;
+
+    --clr-neutral-100: #fff;
+    --clr-neutral-200: #fafafa;
+    --clr-neutral-300: #e5e3e8;
+    --clr-neutral-400: #4e4e4e;
+}
+
+/* ////////////////
+        RESET
+   //////////////// */
 *,
 *::before,
 *::after {
@@ -5,4 +21,65 @@
     margin: 0;
     padding: 0;
 }
+
+/* ////////////////////
+      GENERAL STYLING
+   //////////////////// */
+
+body {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0;
+    color: var(--clr-primary-400);
+}
+
+.fs-500 {
+    font-size: 1.3125rem;
+    margin: 0;
+}
+
+.container {
+    padding: 0 2em;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.bg-light {
+    --bg: var(--clr-neutral-400);
+    --fg: var(--clr-neutral-100);
+    --pop: var(--clr-primary-400);
+
+    color: var(--clr-neutral-400);
+    background: linear-gradient(-45deg, #e5e3e8, #fafafa);
+}
+
+.bg-accent {
+    --bg: var(--clr-neutral-100);
+    --fg: var(--clr-neutral-400);
+    --pop: var(--clr-neutral-100);
+
+    color: var(--clr-neutral-100);
+    background: linear-gradient(-45deg, #00a1ab, #3741a0);
+}
+
+.bg-dark {
+    color: var(--clr-neutral-100);
+    background: var(--clr-neutral-400);
+}
+
+
+/* ////////////////////
+          BUTTONS
+   //////////////////// */
 
