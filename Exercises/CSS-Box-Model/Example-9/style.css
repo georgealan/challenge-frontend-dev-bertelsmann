@@ -55,6 +55,12 @@ section {
     max-width: 1000px;
 }
 
+/*
+You can initiate a variable inside a class, and with that it will inherit in the
+parent container, this approach is usefull for use in elements inside parents, how 
+it was used here, in the children button.
+We control the style of button in acordance to a color scheme that the container follow.
+*/
 .bg-light {
     --bg: var(--clr-neutral-400);
     --fg: var(--clr-neutral-100);
@@ -82,4 +88,31 @@ section {
 /* ////////////////////
           BUTTONS
    //////////////////// */
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em 0.75em;
+    border-radius: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: var(--bg, var(--clr-primary-400));
+    color: var(--fg, var(--clr-neutral-100));
+}
+/* 
+In the class above we use the levarage of variables to change button color in 
+accordingly to the state that parent container use. The sintax here mean
+Try to use this variable --bg here, if it doesn't exist use the second one instead.
+*/
+
+.button--light {
+    background: #fff;
+    color: #4e4ee4;
+}
+
+.button--dark {
+    background: #4e4ee4;
+    color: #fff;
+}
+
 
