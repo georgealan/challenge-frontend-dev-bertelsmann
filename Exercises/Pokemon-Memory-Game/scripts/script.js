@@ -1,3 +1,8 @@
+import * as gameOptions from './game-options.js';
+
+console.log(gameOptions.message);
+console.log(gameOptions.sum(2, 2));
+
 function createCards() { // will be in the function initGame()
     const randomNumbers = generateRandomNumbers(904, 15);
 
@@ -106,6 +111,7 @@ function matchCards(firstCardId, secondCardId) {
     if(firstCardId === secondCardId) {
         matchedCard++;
 
+        // End of turn.
         if(matchedCard == 15) {
             setTimeout(() => {
                 replaceAllCards();
@@ -166,7 +172,13 @@ function replaceAllCards() {
     createCards();
 }
 
+function test() {
+    console.log('Here I can import this module without errors');
+}
+
 gameSoundtrack();
+
+export {test};
 
 /*
     TODOS: 
