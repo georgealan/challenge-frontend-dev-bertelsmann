@@ -46,7 +46,7 @@ section {
 
 .fs-500 {
     font-size: 1.3125rem;
-    margin: 0;
+    margin: 0 0 0.7em 0;
 }
 
 .container {
@@ -115,4 +115,145 @@ Try to use this variable --bg here, if it doesn't exist use the second one inste
     color: #fff;
 }
 
+/* ////////////////////
+          PLANS
+   //////////////////// */
 
+.recommended__ribbon::before {
+    --f: 1.2em;
+    --c:orange;
+    --d:15px;
+
+    color: #4E4E4E;
+    font-weight: 700;
+    content: attr(data-ribbon);
+    font-size:var(--f);
+
+    /* I : position & coloration */
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(29.29%, -100%) rotate(45deg);
+    transform-origin: bottom left;
+    padding: 5px 35px calc(var(--d) + 5px);
+    background: linear-gradient(rgba(0, 0, 0, 0.5) 0 0) bottom/100% var(--d) no-repeat var(--c);
+    
+    /* II : clipping */
+    clip-path: polygon(0 0,100% 0,100% 100%,calc(100% - var(--d)) calc(100% - var(--d)),var(--d) calc(100% - var(--d)) , 0 100%);
+    
+    /* III : masking */
+    -webkit-mask: 
+        linear-gradient( 135deg, transparent calc(50% - var(--d)*0.707),#fff 0) bottom left,
+        linear-gradient(-135deg, transparent calc(50% - var(--d)*0.707),#fff 0) bottom right;
+    -webkit-mask-size: 300vmax 300vmax;
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+}
+
+.left::before {
+    left:0;
+    right:auto;
+    transform: translate(-29.29%, -100%) rotate(-45deg);
+    transform-origin: bottom right;
+}
+
+.ribbon {
+    position: relative;
+}
+
+.plans {
+    display: flex;
+    justify-content: center;
+    margin: 3.5em 0;
+}
+
+.plan {
+    width: 16.5rem;
+    padding: 2em;
+    border-radius: 0.7em;
+    margin: 0 0.5em;
+}
+
+.plan:hover {
+    z-index: 999;
+    transform: scale(1.2);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.plan__title {
+    text-transform: uppercase;
+    margin: 0 0 1em;
+}
+
+.plan__price {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 900;
+    margin: 0;
+    color: var(--pop);
+}
+
+.plan__price span {
+    display: block;
+    font-size: 1.5625rem;
+    font-weight: 300;
+}
+
+.plan__description {
+    margin: 2em 0;
+    line-height: 1.5;
+}
+
+/* ////////////////////
+          TEAMS
+   //////////////////// */
+
+.team {
+    background: #e5e3e8;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    text-align: left;
+    flex: 1 1 45%;
+    margin: 1em;
+    display: flex;
+    border-radius: 0.5em;
+    align-items: center;
+    padding: 0.5em 2em 0.5em 0.5em;
+    line-height: 1.6;
+}
+
+.team-member img {
+    width: 10rem;
+    border-radius: 0.25em;
+    margin-right: 1em;
+}
+
+.team-member .name {
+    font-size: 1.75rem;
+    line-height: 1;
+    font-weight: 900;
+    color: var(--pop);
+    margin: 0;
+}
+
+.team-member .position {
+    margin-top: 0;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.team-member--mirrored {
+    padding: 0.5em 0.5em 0.5em 2em;
+}
+
+.team-member--mirrored img {
+    order: 2; /* Flex order to control order appearance position itens in the box */
+    margin-right: 0;
+    margin-left: 1em;
+}
