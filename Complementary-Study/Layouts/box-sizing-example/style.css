@@ -1,0 +1,47 @@
+/* A WAY TO USE CSS RESET BY INHERITANCE */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/*
+    Or you can simplify these rules using this form:
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+*/
+/*///////////////////////////////////////*/
+
+article, aside {
+    background: #ffeb3b;
+    border: 10px solid #9c27b0;
+    float: left;
+    padding: 10px;
+    /* box-sizing: border-box; */
+}
+
+article {
+    width: 60%;
+}
+
+aside {
+    width: 40%;
+}
+
+/*
+By the box-sizing: border-box, the two elements are sitting side by side.
+Try remove the box-sizing: border-box to see what's happen.
+
+I recommend using box-sizing: border-box in your projects. It makes life easier, as there’s no
+need to calculate the width value to account for the values of padding and border . Boxes
+behave more predictably.
+*/
+
+

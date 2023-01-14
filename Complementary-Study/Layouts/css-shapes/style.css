@@ -1,0 +1,48 @@
+/* /////////////////////// 
+   ////// CSS RESET ////// 
+  //////////////////////// */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    line-height: 1.5em;
+    /* word-break: break-all; */ /* Note #1 */
+    /* text-align: justify; */ /* Note #1 */
+}
+
+/* Draw a shape */
+p:first-of-type::before {
+    content: ' ';
+    float: right;
+    width: 40rem;
+    height: 40rem;
+    /* shape-outside: circle(50%); */ /* Create a circle */
+    /* shape-outside: ellipse(20% 40% at 0% 50%); */ /* Create a circle */
+    /* shape-outside: inset(10% 20% 20% 0 round 8rem); */ /* Create a rectangle */
+    shape-outside: polygon(100% 0, 0% 50%, 100% 100%);
+    background-color: hsl(271, 76%, 83%);
+    /* clip-path: ellipse(20% 40% at 0% 50%); */ /* Help to view */
+    clip-path: polygon(100% 0, 0% 50%, 100% 100%);
+    background-color: hsl(182, 25%, 50%, .25);
+}
+
+/*
+    Shapes can be defined in one of two ways:
+    * using the ellipse() , circle() , inset() , path() , or polygon() basic shape functions
+    * using an image with an alpha channel—that is, an image with full or partial transparency,
+    including gradients
+
+    NOTES:
+    #1 - Notice here that some languages and writing directions may cause text to flow less tightly
+    around a floated shape. The language in this example (Latin) uses a left-to-right language
+    direction, and spaces to mark the beginning and ending of words. As a result, our lines differ in
+    length, and our shape is less clearly articulated. Use word-break: break-all or text-align:
+    justify to mitigate this.
+
+
+*/

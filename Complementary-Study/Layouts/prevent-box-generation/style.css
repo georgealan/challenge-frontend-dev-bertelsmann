@@ -1,0 +1,22 @@
+/* /////////////////////// 
+   ////// CSS RESET ////// 
+  //////////////////////// */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+#ls-cities {
+    display: contents;
+}
+
+#ls-fruits {
+    
+}
+
+/*
+    A ul element with display: contents applied (which removes margin/padding 
+    and thus hides the bullets) compared to one that uses the user agent’s 
+    default styles.
+*/

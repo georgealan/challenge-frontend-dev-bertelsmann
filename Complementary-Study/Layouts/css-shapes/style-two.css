@@ -1,0 +1,35 @@
+/* /////////////////////// 
+   ////// CSS RESET ////// 
+  //////////////////////// */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    /* word-break: break-all; */ /* Note #1 */
+    text-align: justify;
+}
+
+/* Make a shape from an image */
+ [src='images/coffee-cup.png'] {
+    float: right;
+    width: 615px;
+    height: 569px;
+    shape-outside: url('images/coffee-cup.png');
+    shape-margin: 2rem;
+ }
+
+ /*
+    The trick to getting text to flow along the curved edge of coffee-cup.png is to apply the
+    shape-outside property to the image element, and set the image’s URL as its value. But it’s
+    not the image itself that causes text to flow along the image curve. It’s the combination of
+    float and shape-outside . Remove the <img> tag and change the selector to p:first-oftype::
+    before , and there will be an empty, rounded space where the cup used to be. The image
+    below shows how the combination of float and shape-outside causes text to flow around
+    the curve of the image, whether the image is included in the markup or not.
+ */

@@ -1,0 +1,28 @@
+/* /////////////////////// 
+   ////// CSS RESET ////// 
+  //////////////////////// */
+  *,
+  *::before,
+  *::after {
+      box-sizing: border-box;
+  }
+  
+  body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3em;
+      line-height: 1.5em;
+      /* word-break: break-all; */ /* Note #1 */
+      text-align: justify;
+      background-color: hsl(183, 80%, 80%);
+  }
+
+  body::before {
+    content: ' ';
+    display: block;
+    float: right;
+    height: 100vh;
+    width: 50%;
+    background-size: cover;
+    
+  }
+
