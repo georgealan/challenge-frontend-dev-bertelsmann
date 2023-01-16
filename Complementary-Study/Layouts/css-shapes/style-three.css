@@ -1,28 +1,47 @@
 /* /////////////////////// 
    ////// CSS RESET ////// 
   //////////////////////// */
-  *,
-  *::before,
-  *::after {
-      box-sizing: border-box;
-  }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    /* word-break: break-all; */ /* Note #1 */
+    text-align: justify;
+    background-color: hsl(183, 80%, 80%);
+}
+
+body::before {
+  content: ' ';
+  display: block;
+  float: right;
+  height: 100vh;
+  width: 50%;
+  background-size: cover;
   
-  body {
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.3em;
-      line-height: 1.5em;
-      /* word-break: break-all; */ /* Note #1 */
-      text-align: justify;
-      background-color: hsl(183, 80%, 80%);
-  }
+  background-image: linear-gradient( -45deg, 
+    hsl(240, 86%, 25%) 0%, 
+    hsla(213, 100%, 50%, 0.8) 22%, 
+    hsla(183, 100%, 50%, 0) 53%);
 
-  body::before {
-    content: ' ';
-    display: block;
-    float: right;
-    height: 100vh;
-    width: 50%;
-    background-size: cover;
-    
-  }
+  shape-outside: linear-gradient( -45deg, 
+    hsl(240, 86%, 25%) 0%, 
+    hsla(213, 100%, 50%, 0.8) 22%, 
+    hsla(183, 100%, 50%, 0) 53%);
 
+    /* shape-image-threshold: 0.4; */
+}
+
+/*
+In this case, the text flows along the edge of the gradient at the point where it becomes fully
+transparent in the final linear-gradient line.
+
+Changing the alpha threshold means that text now flows around areas of the gradient that
+have a transparency value of 0.4 or higher. These are interpolated values between hsla(213,
+100%, 50%, 0.8) (alpha = 0.8) and hsla(183, 100%, 50%, 0) (alpha = 0).
+*/

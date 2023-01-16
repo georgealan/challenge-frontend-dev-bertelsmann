@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    word-break: break-all; /* Note #1 */
+    text-align: justify;
+}
+
+.wrapper {
+    /* width: 100vw; */
+    /* height: 100vh; */
+    padding: 2em;
+    /* columns: 3; */ /*Shorthand*/
+    column-count: 4;
+    column-width: 1em;
+    column-gap: 1.7em;
+    
+}
+
+span:first-of-type::before {
+    content: ' ';
+    float: left;
+    width: 0.3em;
+    height: 0.7em;
+    shape-outside: circle(50%);
+    /* shape-outside: inset(10% 20% 20% 0 round 8rem); */
+    clip-path: ellipse(50%);
+}
+
+span {
+    font-weight: 700;
+    font-size: 3em;
+    font-family: 'Times New Roman', Times, serif;
+}
