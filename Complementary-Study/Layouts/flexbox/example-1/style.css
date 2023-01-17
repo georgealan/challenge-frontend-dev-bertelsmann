@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    text-align: justify;
+    text-justify: distribute;
+}
+
+.flex-container {
+    display: flex;
+    inline-size: 1500px; /* Can use width too. */
+    border: 2px dashed black ;
+}
+
+.alpha {
+    background-color: blueviolet;
+}
+
+.beta {
+    background-color: rgb(31, 151, 71);
+}
+
+.gamma {
+    background-color: rgb(245, 64, 175);
+}
+
+.delta {
+    background-color: yellow;
+}
+
+.epsilon {
+    background-color: rgb(245, 127, 30);
+}

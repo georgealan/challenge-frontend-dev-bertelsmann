@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    /* word-break: break-all; Note #1 */
+    text-align: justify;
+    text-justify: distribute;
+    padding: 2.7em;
+}
+
+h1 {
+  margin: 1.2em 0;  
+  
+}
+
+.multicolumn {
+    columns: 2;
+    column-gap: 2em;
+    column-width: 5em;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}

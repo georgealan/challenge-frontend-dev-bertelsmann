@@ -26,9 +26,15 @@ body {
     column-rule: 5px hsl(190, 5%, 24%) dashed;
 }
 
+/* NOTE #3 */
+p:nth-last-of-type( 2 ) {
+    background-color: #818181;
+    break-before: column;
+}
+
 /* NOTE #1 */
 p {
-    break-inside: avoid-column;
+    /* break-inside: avoid-column; */
     margin-bottom: 1.5em;
 }
 
@@ -66,4 +72,7 @@ NOTE #1:
 NOTE #2:
     (column-rule: 5px hsl(190, 5%, 24%) dashed;): With column-rule , we can add lines to visually separate columns. 
     It functions similarly to border , and accepts the same values.
+
+NOTE #3:
+    It’s also possible to force a break before or after an element using break-before and breakafter.
 */

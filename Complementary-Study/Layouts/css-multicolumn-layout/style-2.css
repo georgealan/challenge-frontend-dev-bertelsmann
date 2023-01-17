@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    /* word-break: break-all; Note #1 */
+    text-align: justify;
+    text-justify: distribute;
+    padding: 1em;
+}
+
+.grid-3-across {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-3-across ul {
+    border: 1px solid red;
+}
+
+.multicolumn {
+    column-count: 4;
+    column-width: 7em;
+    /* columns: 3; */
+    border: 1px solid red;
+}
+
+h1 {
+    margin: 1em 0;
+}
