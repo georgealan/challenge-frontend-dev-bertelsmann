@@ -9,33 +9,61 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.3em;
     line-height: 1.5em;
-    word-break: break-all; /* Note #1 */
+    /* word-break: break-all; Note #1 */
     text-align: justify;
+    text-justify: distribute;
 }
 
+/* NOTE #2 */
 .wrapper {
-    /* width: 100vw; */
+    width: 100vw;
     /* height: 100vh; */
     padding: 2em;
     /* columns: 3; */ /*Shorthand*/
-    column-count: 4;
-    column-width: 1em;
+    column-count: 3;
+    column-width: 15em;
     column-gap: 1.7em;
-    
+    column-rule: 5px hsl(190, 5%, 24%) dashed;
 }
 
-span:first-of-type::before {
-    content: ' ';
-    float: left;
-    width: 0.3em;
-    height: 0.7em;
-    shape-outside: circle(50%);
-    /* shape-outside: inset(10% 20% 20% 0 round 8rem); */
-    clip-path: ellipse(50%);
+/* NOTE #1 */
+p {
+    break-inside: avoid-column;
+    margin-bottom: 1.5em;
 }
 
-span {
-    font-weight: 700;
-    font-size: 3em;
+p::first-letter {
+    font-weight: 600;
+    font-size: 4em;
+    text-transform: uppercase;
     font-family: 'Times New Roman', Times, serif;
 }
+
+h1 {
+    column-span: all;
+    margin-bottom: 1em;
+    line-height: 1.2em;
+    font-weight: 900;
+    /* letter-spacing: 0.1em; */
+    text-transform: uppercase;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5em;
+}
+
+/*
+NOTE #1:
+    (break-inside: avoid-column;): In a multicolumn layout, a long block of text may start in one column and end in another
+    To prevent this, use break-inside: avoid or break-inside: avoid-column. The break-inside property applies to the 
+    children of a multicolumn container.
+    The break-inside property also affects paged media, which explains why there are both avoid and avoid-column values. 
+    The difference? The avoid-column property only prevents a box from breaking across columns, while avoid prevents 
+    a box from breaking across both columns and pages.
+
+NOTE #2:
+    (column-rule: 5px hsl(190, 5%, 24%) dashed;): With column-rule , we can add lines to visually separate columns. 
+    It functions similarly to border , and accepts the same values.
+*/
