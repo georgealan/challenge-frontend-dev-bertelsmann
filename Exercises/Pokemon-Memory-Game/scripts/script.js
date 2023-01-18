@@ -21,7 +21,7 @@ function createCards() { // will be in the function initGame()
         
         // imgBack.setAttribute('id', 'back-face-'+i);
         imgBack.setAttribute('class', 'back-face');
-        imgBack.setAttribute('src', 'assets/images/pokeball.png');
+        imgBack.setAttribute('src', 'assets/images/Back-Card.jpg');
         imgBack.setAttribute('alt', 'Image card back view');
     
         // Insert html elements in the DOM
@@ -47,6 +47,7 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 let disableDecks = false;
 let matchedCard = 0;
+let audio = document.getElementById('soundtrack');
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {
@@ -95,16 +96,16 @@ function gameSoundtrack() {
 
     for(var i = 0; i < 26; i++) {
         let music = new Audio('assets/sounds/game-soundtrack/soundtrack-' + randomNumbers[i] + '.mp3');
-
         music.play();
         music.volume = 0.3;
-        console.log(music);
-        let trackEnd = music.ended();
-
-        if (trackEnd === false) {
-            continue
-        }
     }
+    verifyIfMusicEnd(music);
+}
+
+function verifyIfMusicEnd(audio) {
+    audio.addEventListener('ended', () => {
+        gameSoundtrack();
+    });
 }
 
 function matchCards(firstCardId, secondCardId) {
