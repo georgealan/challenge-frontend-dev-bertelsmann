@@ -77,31 +77,6 @@ function flipCard() {
     matchCards(firstCard.id, secondCard.id);
 }
 
-// Sound Effects
-function flipCardSound(cards) {
-    const audio = new Audio('assets/sounds/sound-effects/cardflip-sound.mp3');
-    cards.forEach(card => card.addEventListener('click', () => {
-        audio.play();
-    }));
-}
-
-function wrongMatchSound() {
-    const audio = new Audio('assets/sounds/sound-effects/wrong-sound.mp3');
-    audio.play();
-}
-
-// Change music track randomly, set a new song to play in background.
-function setSound() {
-    const randomNumbers = generateRandomNumbers(26, 26);
-
-    let path = 'assets/sounds/game-soundtrack/soundtrack-' + 
-        randomNumbers[Math.floor(Math.random() * randomNumbers.length)] + '.mp3';
-
-    musicSoundtrack.setAttribute('src', path);
-    musicSoundtrack.play();
-    musicSoundtrack.volume = 0.4;
-}
-
 function matchCards(firstCardId, secondCardId) {
     if(firstCardId === secondCardId) {
         matchedCard++;
@@ -171,6 +146,31 @@ function test() {
     console.log('Here I can import this module without errors');
 }
 
+// Sound Effects
+function flipCardSound(cards) {
+    const audio = new Audio('assets/sounds/sound-effects/cardflip-sound.mp3');
+    cards.forEach(card => card.addEventListener('click', () => {
+        audio.play();
+    }));
+}
+
+function wrongMatchSound() {
+    const audio = new Audio('assets/sounds/sound-effects/wrong-sound.mp3');
+    audio.play();
+}
+
+// Change music track randomly, set a new song to play in background.
+function setSound() {
+    const randomNumbers = generateRandomNumbers(26, 26);
+
+    let path = 'assets/sounds/game-soundtrack/soundtrack-' + 
+        randomNumbers[Math.floor(Math.random() * randomNumbers.length)] + '.mp3';
+
+    musicSoundtrack.setAttribute('src', path);
+    musicSoundtrack.play();
+    musicSoundtrack.volume = 0.4;
+}
+
 // Here is where the soundtrack starts playing.
 setSound();
 
@@ -178,7 +178,7 @@ setSound();
 This event below track the end of the song, and when the song ends, it evoques setSound function
 that handle put other music in place, with that the background music soundtrack never ends.
 */
-musicSoundtrack.addEventListener('ended', setSound, false); 
+musicSoundtrack.addEventListener('ended', setSound, false);
 
 export {test}; // Only for export values to other JS file.
 

@@ -90,9 +90,6 @@ body {
     transform: rotateY(180deg);
 }
 
-#soundtrack {
-    
-}
 
 /* Responsivity Media Queries */
 @media screen and (max-width: 1550px) {
