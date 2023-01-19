@@ -47,7 +47,7 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 let disableDecks = false;
 let matchedCard = 0;
-let audio = document.getElementById('soundtrack');
+let musicSoundtrack = new Audio();
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {
@@ -90,22 +90,16 @@ function wrongMatchSound() {
     audio.play();
 }
 
-// FIX THIS FUNCTION
-function gameSoundtrack() {
+// Change music track randomly, set a new song to play in background.
+function setSound() {
     const randomNumbers = generateRandomNumbers(26, 26);
 
-    for(var i = 0; i < 26; i++) {
-        let music = new Audio('assets/sounds/game-soundtrack/soundtrack-' + randomNumbers[i] + '.mp3');
-        music.play();
-        music.volume = 0.3;
-    }
-    verifyIfMusicEnd(music);
-}
+    let path = 'assets/sounds/game-soundtrack/soundtrack-' + 
+        randomNumbers[Math.floor(Math.random() * randomNumbers.length)] + '.mp3';
 
-function verifyIfMusicEnd(audio) {
-    audio.addEventListener('ended', () => {
-        gameSoundtrack();
-    });
+    musicSoundtrack.setAttribute('src', path);
+    musicSoundtrack.play();
+    musicSoundtrack.volume = 0.4;
 }
 
 function matchCards(firstCardId, secondCardId) {
@@ -177,9 +171,16 @@ function test() {
     console.log('Here I can import this module without errors');
 }
 
-gameSoundtrack();
+// Here is where the soundtrack starts playing.
+setSound();
 
-export {test};
+/* 
+This event below track the end of the song, and when the song ends, it evoques setSound function
+that handle put other music in place, with that the background music soundtrack never ends.
+*/
+musicSoundtrack.addEventListener('ended', setSound, false); 
+
+export {test}; // Only for export values to other JS file.
 
 /*
     TODOS: 
