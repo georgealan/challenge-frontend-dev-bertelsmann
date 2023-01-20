@@ -4,10 +4,10 @@ console.log(gameOptions.message);
 console.log(gameOptions.sum(2, 2));
 
 function createCards() { // will be in the function initGame()
-    const randomNumbers = generateRandomNumbers(904, 30);
+    const randomNumbers = generateRandomNumbers(904, 42);
     
     // Ideal is 15, I testing with high number of cards for mobile.
-    for(var i = 0; i < 30; i++) {
+    for(var i = 0; i < 42; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');
@@ -82,8 +82,8 @@ function matchCards(firstCardId, secondCardId) {
     if(firstCardId === secondCardId) {
         matchedCard++;
 
-        // End of turn.
-        if(matchedCard == 15) {
+        // End of turn, refresh all cards.
+        if(matchedCard == 30) {
             setTimeout(() => {
                 replaceAllCards();
             }, 1500);
