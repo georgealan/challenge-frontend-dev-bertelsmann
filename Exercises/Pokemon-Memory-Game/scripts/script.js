@@ -3,11 +3,13 @@ import * as gameOptions from './game-options.js';
 console.log(gameOptions.message);
 console.log(gameOptions.sum(2, 2));
 
+// Max number of cards will be 49 cards, in an range of 05 to 49.
+
 function createCards() { // will be in the function initGame()
-    const randomNumbers = generateRandomNumbers(904, 48);
+    const randomNumbers = generateRandomNumbers(904, 49);
     
     // Ideal is 15, I testing with high number of cards for mobile.
-    for(var i = 0; i < 48; i++) {
+    for(var i = 0; i < 49; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');

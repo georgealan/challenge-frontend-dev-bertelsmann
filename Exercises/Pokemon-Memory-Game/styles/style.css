@@ -137,9 +137,8 @@ body {
         width: 90vw;
         /* margin-top: 0; */
         /* grid-template-columns: repeat(auto-fill, minmax(41px, 1fr));
-        grid-template-rows: repeat(auto-fill, minmax(41px, 1fr));
-        background: yellow; */
+        grid-template-rows: repeat(auto-fill, minmax(41px, 1fr)); */
+        /* background: yellow; */
+        grid-template-columns: repeat(auto-fill, minmax(max(35px, min(10%, 30px)), 1fr));
     }
 }
-
-
