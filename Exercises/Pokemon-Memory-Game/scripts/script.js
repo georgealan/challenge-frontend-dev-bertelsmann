@@ -1,15 +1,10 @@
 import * as gameOptions from './game-options.js';
 
-console.log(gameOptions.message);
-console.log(gameOptions.sum(2, 2));
-
-// Max number of cards will be 49 cards, in an range of 05 to 49.
-
 function createCards() { // will be in the function initGame()
-    const randomNumbers = generateRandomNumbers(904, 49);
+    const randomNumbers = generateRandomNumbers(904, gameOptions.totalCards);
     
     // Ideal is 15, I testing with high number of cards for mobile.
-    for(var i = 0; i < 49; i++) {
+    for(var i = 0; i < gameOptions.totalCards; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');
@@ -50,7 +45,14 @@ let hasFlippedCard = false;
 let firstCard, secondCard;
 let disableDecks = false;
 let matchedCard = 0;
-// let musicSoundtrack = new Audio();
+let percentage = document.querySelector(':root');
+percentage.style.setProperty('--percentage-min', gameOptions.percent);
+
+// Send percentage value for css file, to style cards in the board.
+// function setPercentage() {
+//     percentage.style.setProperty('--percentage-min', gameOptions.percent);
+// }
+// setPercentage();
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {
@@ -85,7 +87,7 @@ function matchCards(firstCardId, secondCardId) {
         matchedCard++;
 
         // End of turn, refresh all cards.
-        if(matchedCard == 30) {
+        if(matchedCard == gameOptions.totalCards) {
             setTimeout(() => {
                 replaceAllCards();
             }, 1500);
@@ -145,11 +147,6 @@ function replaceAllCards() {
     createCards();
 }
 
-// Test export functions to others JS files
-function test() {
-    console.log('Here I can import this module without errors');
-}
-
 // Sound Effects
 function flipCardSound(cards) {
     const audio = new Audio('assets/sounds/sound-effects/cardflip-sound.mp3');
@@ -197,8 +194,9 @@ function waitSoundEnd(audio) {
 // Here is where the soundtrack starts playing.
 setSound();
 
-
-export {test}; // Only for export values to other JS file.
+// Test export functions to others JS files Only for export values to script.js file.
+function link() {}
+export {link};
 
 /*
     TODOS: 
