@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@font-face {
+    font-family: pokemon-solid;
+    src: url('../assets/fonts/pokemon-solid.ttf');
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    height: 100vh;
+    background: #E5E3E8;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-weight: 700;
+    background: linear-gradient(253deg, #8703CF, #B60972, #F72C25, #F7B32B);
+    background-size: 300% 300%;
+    animation: Background 20s ease infinite;
+}
+
+@keyframes Background {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1,
+h2 {
+    font-family: 'pokemon-solid', cursive;
+    color: #FAC705;
+    -webkit-text-stroke: 0.05rem #3D64B8;
+    text-shadow:
+       0.05rem 0.05rem 0 #3D64B8,
+     -1px -1px 0 #3D64B8,  
+      1px -1px 0 #3D64B8,
+      -1px 1px 0 #3D64B8,
+       1px 1px 0 #3D64B8;
+    text-align: center;
+    line-height: 1.1em;
+}
+
+h2 {
+    margin: 1.5rem 0;
+}
+
+.logo {
+    width: 50vw;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.options {
+    width: 50vw;
+    height: 40vh;
+}
+
+.btn-start-game {
+    text-transform: uppercase;
+}

@@ -48,12 +48,6 @@ let matchedCard = 0;
 let percentage = document.querySelector(':root');
 percentage.style.setProperty('--percentage-min', gameOptions.percent);
 
-// Send percentage value for css file, to style cards in the board.
-// function setPercentage() {
-//     percentage.style.setProperty('--percentage-min', gameOptions.percent);
-// }
-// setPercentage();
-
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {
     const uniqueNumbers = new Set();

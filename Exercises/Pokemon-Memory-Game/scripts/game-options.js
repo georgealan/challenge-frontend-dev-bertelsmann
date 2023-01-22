@@ -1,5 +1,8 @@
 import * as script from './script.js';
 
+function setNumberOfCards() {
+    console.log('In function to set number');
+}
 
 // Max number of cards will be 40 cards, in an range of 04 to 40.
 let totalCards = 40;
@@ -26,7 +29,6 @@ if(totalCards === 4) {
 } else if (totalCards <= 40) {
     percent = 10 + '%';
 }
-
 
 script.link();
 export {percent, totalCards};

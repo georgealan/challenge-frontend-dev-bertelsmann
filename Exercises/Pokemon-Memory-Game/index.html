@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/menu.css">
     <title>Pokemon Memory Game</title>
 </head>
 <body>
-    <section id="board-game"></section>
+    <div class="logo">
+        <img src="assets/images/pokemon-logo.png" alt="Pokemon Game Logo">
+    </div>
 
-    <script src="scripts/script.js" type="module"></script>
+    <section class="options">
+        <h2>Game Options</h2>
+        <form name="form-options">
+            <label for="">Choose number of cards to play (between 04 to 40):</label><br>
+            <input type="number" id="number-of-cards" name="number-of-cards" min="4" max="40">
+            <input type="submit" onclick="setNumberOfCards()" value="number of cards">
+        </form>
+    </section>
+
+    <!-- <button id="btn-start" type="submit" class="btn-start-game" form="form-options">start game</button> -->
+    <!-- <input type="button" form="form-options" value="start game" onclick="getTotalCards()"> -->
+
+    <script src="scripts/game-options.js" type="module"></script>
 </body>
 </html>
