@@ -5,25 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Pokemon Memory Game</title>
 </head>
 <body>
-    <div class="logo">
-        <img src="assets/images/pokemon-logo.png" alt="Pokemon Game Logo">
+    <div id="menu">
+        <div class="logo">
+            <img src="assets/images/pokemon-logo.png" alt="Pokemon Game Logo">
+        </div>
+
+        <section class="options">
+            <h2>Game Options</h2>
+            <form name="form-options">
+                <label for="number-of-cards">Choose number of cards to play (between 04 to 40):</label>
+                <input type="number" id="number-of-cards" name="number-of-cards" value="4" min="4" max="40" required>
+            </form>
+            <button id="new-game" onclick="runGame()" class="btn-start-game" form="form-options">start game</button>
+        </section>
     </div>
 
-    <section class="options">
-        <h2>Game Options</h2>
-        <form name="form-options">
-            <label for="">Choose number of cards to play (between 04 to 40):</label><br>
-            <input type="number" id="number-of-cards" name="number-of-cards" min="4" max="40">
-            <input type="submit" onclick="setNumberOfCards()" value="number of cards">
-        </form>
-    </section>
+    <canvas id="board-game"></canvas>
+    
+    <script src="scripts/script.js" type="module"></script>
+    <script>
+        document.getElementById('board-game').style.display = 'none';
+        var runGame = function() {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('board-game').style.display = 'block';
+        }
+        
+        // var inputNumber = document.querySelector("input[type='number']");
+        // var button = document.querySelector("#new-game");
 
-    <!-- <button id="btn-start" type="submit" class="btn-start-game" form="form-options">start game</button> -->
-    <!-- <input type="button" form="form-options" value="start game" onclick="getTotalCards()"> -->
-
-    <script src="scripts/game-options.js" type="module"></script>
+        // button.addEventListener("click", function(){
+        //     var value = inputNumber.value;
+        //     console.log(value);
+        // });
+    </script>
 </body>
 </html>

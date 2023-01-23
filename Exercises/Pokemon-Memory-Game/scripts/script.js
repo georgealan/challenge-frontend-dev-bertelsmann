@@ -1,10 +1,47 @@
-import * as gameOptions from './game-options.js';
+let inputNumber = document.querySelector("input[type='number']");
+let button = document.querySelector("#new-game");
+let totalCards = 0;
+let percent = 0 + '%';
+
+button.addEventListener("click", styleEachCard);
+
+function styleEachCard() {
+    let value = inputNumber.value;
+    totalCards = value;
+    // Max number of cards will be 40 cards, in an range of 04 to 40.
+    if(totalCards === 4) {
+        percent = 30 + '%';
+    } else if (totalCards >= 5 && totalCards <= 8) {
+        percent = 20 + '%';
+    } else if (totalCards <= 10) {
+        percent = 19.4 + '%';
+    } else if (totalCards <= 12) {
+        percent = 19 + '%';
+    } else if (totalCards <= 15) {
+        percent = 16 + '%';
+    } else if (totalCards <= 18) {
+        percent = 15 + '%';
+    } else if (totalCards <= 21) {
+        percent = 13.6 + '%';
+    } else if (totalCards <= 24) {
+        percent = 13 + '%';
+    } else if (totalCards <= 32) {
+        percent = 11 + '%';
+    } else if (totalCards <= 40) {
+        percent = 10 + '%';
+    }
+
+    return parseInt(value);
+}
+
+
+console.log('This is percent' + percent);
+console.log('This is totalCards' + totalCards);
 
 function createCards() { // will be in the function initGame()
-    const randomNumbers = generateRandomNumbers(904, gameOptions.totalCards);
-    
-    // Ideal is 15, I testing with high number of cards for mobile.
-    for(var i = 0; i < gameOptions.totalCards; i++) {
+    totalCards = styleEachCard();
+    const randomNumbers = generateRandomNumbers(904, totalCards);
+    for(var i = 0; i < totalCards; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');
@@ -12,12 +49,10 @@ function createCards() { // will be in the function initGame()
         card.setAttribute('id', 'card-'+i);
         card.setAttribute('class', 'card');
     
-        // imgFront.setAttribute('id', 'front-face-'+i);
         imgFront.setAttribute('class', 'front-face');
         imgFront.setAttribute('src', 'assets/images/pokemons/pokemon-' + randomNumbers[i] + '.png');
         imgFront.setAttribute('alt', 'Image card front view');
         
-        // imgBack.setAttribute('id', 'back-face-'+i);
         imgBack.setAttribute('class', 'back-face');
         imgBack.setAttribute('src', 'assets/images/Back-Card.jpg');
         imgBack.setAttribute('alt', 'Image card back view');
@@ -46,7 +81,7 @@ let firstCard, secondCard;
 let disableDecks = false;
 let matchedCard = 0;
 let percentage = document.querySelector(':root');
-percentage.style.setProperty('--percentage-min', gameOptions.percent);
+percentage.style.setProperty('--percentage-min', percent);
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {
@@ -81,7 +116,7 @@ function matchCards(firstCardId, secondCardId) {
         matchedCard++;
 
         // End of turn, refresh all cards.
-        if(matchedCard == gameOptions.totalCards) {
+        if(matchedCard == totalCards) {
             setTimeout(() => {
                 replaceAllCards();
             }, 1500);
@@ -187,10 +222,6 @@ function waitSoundEnd(audio) {
 
 // Here is where the soundtrack starts playing.
 setSound();
-
-// Test export functions to others JS files Only for export values to script.js file.
-function link() {}
-export {link};
 
 /*
     TODOS: 
