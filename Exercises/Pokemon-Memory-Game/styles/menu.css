@@ -25,18 +25,6 @@
     font-weight: 700;
 }
 
-@keyframes Background {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 h1,
 h2 {
     font-family: 'pokemon-solid', cursive;

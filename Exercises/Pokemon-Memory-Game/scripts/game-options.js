@@ -3,14 +3,25 @@ let button = document.querySelector("#new-game");
 let totalCards = 0;
 let percent = 0;
 
-button.addEventListener("click", getTotalCards);
+// TODO: FIX INPUT NUMBER INPLEMENTATION
+
+// button.addEventListener("click", getTotalCards);
+inputNumber.addEventListener("input", getTotalCards);
+
+// function getTotalCards() {
+//     // Max number of cards will be 40 cards, in an range of 04 to 40.
+//     let value = inputNumber.value;
+//     // totalCards = value;
+    
+//     return parseInt(value);
+// }
 
 function getTotalCards() {
     // Max number of cards will be 40 cards, in an range of 04 to 40.
-    let value = inputNumber.value;
-    totalCards = value;
-    
-    return parseInt(value);
+    // let value = inputNumber.value;
+    let valueParseInt = inputNumber.valueAsNumber;
+    console.log(typeof valueParseInt, valueParseInt);
+    return valueParseInt;
 }
 
 function getPercent(totalCards) {

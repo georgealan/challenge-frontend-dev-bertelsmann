@@ -45,7 +45,6 @@ let disableDecks = false;
 let matchedCard = 0;
 let percentage = document.querySelector(':root');
 percentage.style.setProperty('--percentage-min', gameOptions.percent + '%');
-console.log('Here in percente script js' + gameOptions.percent);
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {

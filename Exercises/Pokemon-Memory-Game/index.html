@@ -19,8 +19,11 @@
             <form name="form-options">
                 <label for="number-of-cards">Choose number of cards to play (between 04 to 40):</label>
                 <input type="number" id="number-of-cards" name="number-of-cards" value="4" min="4" max="40" required>
+                <div>
+                    <input type="button" id="new-game" onclick="runGame()" class="btn-start-game" value="START GAME">
+                </div>
             </form>
-            <button id="new-game" onclick="runGame()" class="btn-start-game" form="form-options">start game</button>
+            <!-- <button id="new-game" onclick="runGame()" class="btn-start-game" form="form-options">start game</button> -->
         </section>
     </div>
 
