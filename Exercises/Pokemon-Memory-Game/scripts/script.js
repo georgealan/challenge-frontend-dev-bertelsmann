@@ -3,7 +3,6 @@ import * as gameOptions from './game-options.js';
 function createCards() { // will be in the function initGame()
     const totalCards = gameOptions.totalCards;
     const randomNumbers = generateRandomNumbers(904, totalCards);
-    console.log('This is totalCards' + gameOptions.totalCards);
     for(var i = 0; i < gameOptions.totalCards; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');

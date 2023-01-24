@@ -1,25 +1,17 @@
+let inputButton = document.querySelector("input[type='button']");
 let inputNumber = document.querySelector("input[type='number']");
+let cardNumber = document.getElementById('numberOfCards').value;
+// let inputNumber = document.getElementById('number');
 let button = document.querySelector("#new-game");
-let totalCards = 0;
+let totalCards = cardNumber;
 let percent = 0;
 
-// TODO: FIX INPUT NUMBER INPLEMENTATION
-
-// button.addEventListener("click", getTotalCards);
-inputNumber.addEventListener("input", getTotalCards);
-
-// function getTotalCards() {
-//     // Max number of cards will be 40 cards, in an range of 04 to 40.
-//     let value = inputNumber.value;
-//     // totalCards = value;
-    
-//     return parseInt(value);
-// }
+inputButton.addEventListener("click", getTotalCards);
 
 function getTotalCards() {
-    // Max number of cards will be 40 cards, in an range of 04 to 40.
-    // let value = inputNumber.value;
-    let valueParseInt = inputNumber.valueAsNumber;
+    // let value = cardNumber;
+    inputNumber.value = cardNumber;
+    let valueParseInt = parseInt(value);
     console.log(typeof valueParseInt, valueParseInt);
     return valueParseInt;
 }
@@ -54,3 +46,6 @@ totalCards = getTotalCards();
 percent = getPercent(totalCards);
 
 export {percent, totalCards};
+
+
+// TODO: FIX INPUT NUMBER IMPLEMENTATION.
