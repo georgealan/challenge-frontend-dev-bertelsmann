@@ -1,47 +1,10 @@
-let inputNumber = document.querySelector("input[type='number']");
-let button = document.querySelector("#new-game");
-let totalCards = 0;
-let percent = 0 + '%';
-
-button.addEventListener("click", styleEachCard);
-
-function styleEachCard() {
-    let value = inputNumber.value;
-    totalCards = value;
-    // Max number of cards will be 40 cards, in an range of 04 to 40.
-    if(totalCards === 4) {
-        percent = 30 + '%';
-    } else if (totalCards >= 5 && totalCards <= 8) {
-        percent = 20 + '%';
-    } else if (totalCards <= 10) {
-        percent = 19.4 + '%';
-    } else if (totalCards <= 12) {
-        percent = 19 + '%';
-    } else if (totalCards <= 15) {
-        percent = 16 + '%';
-    } else if (totalCards <= 18) {
-        percent = 15 + '%';
-    } else if (totalCards <= 21) {
-        percent = 13.6 + '%';
-    } else if (totalCards <= 24) {
-        percent = 13 + '%';
-    } else if (totalCards <= 32) {
-        percent = 11 + '%';
-    } else if (totalCards <= 40) {
-        percent = 10 + '%';
-    }
-
-    return parseInt(value);
-}
-
-
-console.log('This is percent' + percent);
-console.log('This is totalCards' + totalCards);
+import * as gameOptions from './game-options.js';
 
 function createCards() { // will be in the function initGame()
-    totalCards = styleEachCard();
+    const totalCards = gameOptions.totalCards;
     const randomNumbers = generateRandomNumbers(904, totalCards);
-    for(var i = 0; i < totalCards; i++) {
+    console.log('This is totalCards' + gameOptions.totalCards);
+    for(var i = 0; i < gameOptions.totalCards; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');
@@ -81,7 +44,8 @@ let firstCard, secondCard;
 let disableDecks = false;
 let matchedCard = 0;
 let percentage = document.querySelector(':root');
-percentage.style.setProperty('--percentage-min', percent);
+percentage.style.setProperty('--percentage-min', gameOptions.percent + '%');
+console.log('Here in percente script js' + gameOptions.percent);
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {
@@ -116,7 +80,7 @@ function matchCards(firstCardId, secondCardId) {
         matchedCard++;
 
         // End of turn, refresh all cards.
-        if(matchedCard == totalCards) {
+        if(matchedCard == gameOptions.totalCards) {
             setTimeout(() => {
                 replaceAllCards();
             }, 1500);

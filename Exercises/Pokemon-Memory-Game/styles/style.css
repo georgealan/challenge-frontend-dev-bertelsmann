@@ -22,9 +22,10 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #fff;
     font-weight: 700;
-    background: linear-gradient(253deg, #8703CF, #B60972, #F72C25, #F7B32B);
+    background: #F72C25;
+    /* background: linear-gradient(253deg, #8703CF, #B60972, #F72C25, #F7B32B);
     background-size: 300% 300%;
-    animation: Background 20s ease infinite;
+    animation: Background 20s ease infinite; */
 }
 
 #board-game {
@@ -71,7 +72,6 @@ body {
 }
 
 /* //////// ANIMATIONS //////// */
-
 @keyframes shake {
     0%, 100%{
         transform: translateX(0);
@@ -87,6 +87,18 @@ body {
     }
     80%{
         transform: translateX(8px);
+    }
+}
+
+@keyframes Background {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
