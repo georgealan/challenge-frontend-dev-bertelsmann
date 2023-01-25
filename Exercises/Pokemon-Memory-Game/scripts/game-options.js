@@ -1,17 +1,19 @@
-let inputButton = document.querySelector("input[type='button']");
 let inputNumber = document.querySelector("input[type='number']");
-let cardNumber = document.getElementById('numberOfCards').value;
-// let inputNumber = document.getElementById('number');
-let button = document.querySelector("#new-game");
-let totalCards = cardNumber;
+// let button = document.querySelector("#new-game");
+let totalCards = 0;
 let percent = 0;
 
-inputButton.addEventListener("click", getTotalCards);
+// function runGame() {
+//     document.getElementById('menu').style.display = 'none';
+//     document.getElementById('board-game').style.display = 'grid';
+//     console.log('Goku is here');
+// }
 
+inputNumber.addEventListener("input", getTotalCards);
+
+document.getElementById('board-game').style.display = 'none';
 function getTotalCards() {
-    // let value = cardNumber;
-    inputNumber.value = cardNumber;
-    let valueParseInt = parseInt(value);
+    let valueParseInt = inputNumber.valueAsNumber;
     console.log(typeof valueParseInt, valueParseInt);
     return valueParseInt;
 }
