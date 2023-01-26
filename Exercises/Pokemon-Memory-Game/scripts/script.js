@@ -1,20 +1,35 @@
+var numbersForBoard=[];
+let percent;
+let totalCards;
+let percentage = document.querySelector(':root');
+
 document.getElementById('board-game').style.display = 'none';
 function runGame() {
-    console.log('In function runGame()');
     document.getElementById('menu').style.display = 'none';
     document.getElementById('board-game').style.display = 'grid';
+    createCards();
+}
+
+let inputNumber = document.querySelector("input[type='submit']");
+inputNumber.addEventListener('click', getNumber, false);
+
+function getNumber(event) {
+    const num = document.getElementById('numberOfCards').value;
+    numbersForBoard.push(num);
+    numbersForBoard.push(percent);
+    event.preventDefault();
 }
 
 function createCards() { // will be in the function initGame()
-    console.log('dentro da function createCards: ' + totalCards);
-    console.log('dentro da function createCards percent: ' + percent);
-    const randomNumbers = generateRandomNumbers(904, totalCards);
-    for(var i = 0; i < totalCards; i++) {
+    percent = getPercent(numbersForBoard[0]);
+    percentage.style.setProperty('--percentage-min', percent + '%');
+    const randomNumbers = generateRandomNumbers(904, numbersForBoard[0]);
+    for(var i = 0; i < numbersForBoard[0]; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');
     
-        card.setAttribute('id', 'card-'+i);
+        card.setAttribute('id', 'card-' + i);
         card.setAttribute('class', 'card');
     
         imgFront.setAttribute('class', 'front-face');
@@ -42,24 +57,8 @@ function createCards() { // will be in the function initGame()
     shuffleCards(cards); // Sort all cards in an aleatory way
 }
 
-let percent;
-let totalCards = 0;
-let percentage = document.querySelector(':root');
-console.log('Percent value in percent area: ' + percent);
-
-let inputNumber = document.querySelector("input[type='number']");
-inputNumber.addEventListener("input", function(){
-    let valueParseInt = inputNumber.valueAsNumber;
-    console.log(typeof valueParseInt, valueParseInt);
-    totalCards = valueParseInt;
-    percent = getPercent(totalCards);
-    percentage.style.setProperty('--percentage-min', percent + '%');
-    console.log(typeof percent, 'Percent: ' + percent);
-    createCards();
-});
-
 function getPercent(totalCards) {
-    if(totalCards === 4) {
+    if(totalCards <= 4) {
         percent = 30;
     } else if (totalCards >= 5 && totalCards <= 8) {
         percent = 20;
@@ -84,13 +83,12 @@ function getPercent(totalCards) {
     return percent;
 }
 
-// createCards();
+createCards();
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let disableDecks = false;
 let matchedCard = 0;
-
 
 // Generate unique ramdom numbers, without repeat any number, using Set().
 function generateRandomNumbers(limit, expectedNumbers) {
@@ -125,7 +123,7 @@ function matchCards(firstCardId, secondCardId) {
         matchedCard++;
 
         // End of turn, refresh all cards.
-        if(matchedCard == totalCards) {
+        if(matchedCard == numbersForBoard[0]) {
             setTimeout(() => {
                 replaceAllCards();
             }, 1500);
@@ -231,14 +229,3 @@ function waitSoundEnd(audio) {
 
 // Here is where the soundtrack starts playing.
 setSound();
-
-/*
-    TODOS: 
-    DONE! - a) Add music sound in the background, Pokemon theme music strumental.
-    DONE! - c) Add sound effects when: flip card: (sound effect flip), error match: (sound effect error).
-    b) Allow user take sound game on/off in the panel.
-    d) Add animations of congratulations in the end of the game before refresh all cards.
-    e) Add left panel, with menu panel bottom half that contain time, life, points, buttons etc.
-    f) Add image of Ash and Pikachu in the left panel top half.
-    (The partition of the left panel have to be a pokebol divisor, red color below and ash/pikach above).
-*/
