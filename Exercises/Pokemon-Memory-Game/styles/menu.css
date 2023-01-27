@@ -47,6 +47,7 @@ h2 {
 
 .logo {
     width: 50vw;
+    z-index: 999;
 }
 
 .logo img {
@@ -57,12 +58,60 @@ h2 {
     text-align: center;
     width: 50vw;
     height: 40vh;
+    z-index: 999;
 }
 
 .btn-start-game {
     text-transform: uppercase;
     margin-top: 10px;
     
+}
+
+/* ////////// BUTTONS ////////// */
+#new-game {
+    background: rgba(245, 223, 22, 0.808);
+    border: 0;
+    border-radius: 2em;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-weight: 700;
+    padding: 1em 3em;
+    margin-top: 5em;
+}
+
+#new-game:active {
+    transform: scale(0.9);
+}
+
+#submit {
+    background: rgba(245, 223, 22, 0.808);
+    border: 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-weight: 700;
+    padding: 0.7em 0.6em;
+    border-radius: 0.3em;
+    margin-top: 0.3em;
+}
+
+#submit:active {
+    transform: scale(0.9);
+}
+
+/* ////////// INPUT NUMBER ////////// */
+#numberOfCards {
+    padding: 0.3em;
+    font-size: 1.2em;
+    width: 32px;
+    border: 0;
+    margin-right: 0.3em;
+    border-radius: 0.3em;
+}
+
+input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0; 
 }
 
 /* ////////// MEDIA QUERIES ////////// */
@@ -91,5 +140,9 @@ h2 {
     .options {
         width: 70vw;
         height: 40vh;
+    }
+
+    #new-game {
+        margin-top: 1em;
     }
 }
