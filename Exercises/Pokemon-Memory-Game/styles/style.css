@@ -23,6 +23,7 @@ body {
     color: #fff;
     font-weight: 700;
     background: #F72C25;
+    /* //// BACKGROUD ANIMATION - (Consume high GPU usage, not recommended) //// */
     /* background: linear-gradient(253deg, #8703CF, #B60972, #F72C25, #F7B32B);
     background-size: 300% 300%;
     animation: Background 20s ease infinite; */
@@ -90,7 +91,8 @@ body {
     }
 }
 
-@keyframes Background {
+/* //// BACKGROUD ANIMATION - (Consume high GPU usage, not recommended) //// */
+/* @keyframes Background {
     0% {
         background-position: 0% 50%;
     }
@@ -100,7 +102,7 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 .front-face,
 .back-face {
