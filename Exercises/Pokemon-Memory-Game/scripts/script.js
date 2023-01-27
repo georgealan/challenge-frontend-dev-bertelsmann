@@ -1,30 +1,50 @@
 var numbersForBoard=[];
 let percent;
 let totalCards;
+var lastArrayNumber;
 let percentage = document.querySelector(':root');
+let inputNumber = document.querySelector("input[type='submit']");
+let input = document.querySelector("input[type='number']");
+inputNumber.addEventListener('click', getNumberOfCards, false);
 
+document.getElementById('alert').style.display = 'none';
 document.getElementById('board-game').style.display = 'none';
-function runGame() {
-    document.getElementById('menu').style.display = 'none';
-    document.getElementById('board-game').style.display = 'grid';
-    createCards();
+
+function displayAlert() {
+    document.getElementById('alert').style.display = 'block';
+    setTimeout(() => {
+        document.getElementById('alert').style.display = 'none';
+    }, 1900);
 }
 
-let inputNumber = document.querySelector("input[type='submit']");
-inputNumber.addEventListener('click', getNumber, false);
+function runGame() {
+    if (input.value === '') {
+        displayAlert();
+    } else if (input.value < 4 || input.value > 40) {
+        displayAlert();
+    } else {
+        document.getElementById('menu').style.display = 'none';
+        document.getElementById('board-game').style.display = 'grid';
+        createCards();
+    }
+}
 
-function getNumber(event) {
-    const num = document.getElementById('numberOfCards').value;
-    numbersForBoard.push(num);
-    numbersForBoard.push(percent);
-    event.preventDefault();
+function getNumberOfCards(event) {
+    if (input.value === '') {
+    } else if (input.value < 4 || input.value > 40) {
+    } else {
+        const num = document.getElementById('numberOfCards').value;
+        numbersForBoard.push(num);
+        event.preventDefault(); // Need to prevent action of submit button refresh the page to send data, here we only need fill the array.
+    }
 }
 
 function createCards() { // will be in the function initGame()
-    percent = getPercent(numbersForBoard[0]);
+    lastArrayNumber = numbersForBoard.length - 1; // Ensuring that the player can change your choice in the input number field any time until satisfied with the number of cards.
+    percent = getPercent(numbersForBoard[lastArrayNumber]);
     percentage.style.setProperty('--percentage-min', percent + '%');
-    const randomNumbers = generateRandomNumbers(904, numbersForBoard[0]);
-    for(var i = 0; i < numbersForBoard[0]; i++) {
+    const randomNumbers = generateRandomNumbers(904, numbersForBoard[lastArrayNumber]);
+    for(var i = 0; i < numbersForBoard[lastArrayNumber]; i++) {
         const card = document.createElement('div');
         const imgFront = document.createElement('img');
         const imgBack = document.createElement('img');
@@ -83,6 +103,7 @@ function getPercent(totalCards) {
     return percent;
 }
 
+setSound(); // Here is where the soundtrack starts playing.
 createCards();
 
 let hasFlippedCard = false;
@@ -123,7 +144,7 @@ function matchCards(firstCardId, secondCardId) {
         matchedCard++;
 
         // End of turn, refresh all cards.
-        if(matchedCard == numbersForBoard[0]) {
+        if(matchedCard == numbersForBoard[lastArrayNumber]) {
             setTimeout(() => {
                 replaceAllCards();
             }, 1500);
@@ -226,6 +247,3 @@ function removeSound() {
 function waitSoundEnd(audio) {
     audio.addEventListener('ended', removeSound, false);
 }
-
-// Here is where the soundtrack starts playing.
-setSound();

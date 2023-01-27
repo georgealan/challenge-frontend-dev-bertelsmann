@@ -108,12 +108,39 @@ h2 {
     border-radius: 0.3em;
 }
 
+/* ///// Remove input number spins for Mozilla Browser ///// */
 input[type=number] { 
     -moz-appearance: textfield;
     appearance: textfield;
     margin: 0; 
 }
 
+/* ///// Remove input number spins for Chrome Browser ///// */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+}
+
+/* ////////// ALERT ////////// */
+#alert {
+    width: 50%;
+    padding: 0.5em;
+    background: #fff;
+    color: #000;
+    position: fixed;
+    bottom: 18%;
+    right: 25%;
+    font-weight: 400;
+    border-radius: 0.2em;
+    border: 1px solid #595D5F;
+}
+
+.fa-exclamation-circle {
+    margin-right: 7px;
+    font-size:1.7em;
+    color: orange !important;
+}
 /* ////////// MEDIA QUERIES ////////// */
 
 /* MOBILE DEVICES */
